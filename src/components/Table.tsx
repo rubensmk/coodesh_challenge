@@ -1,11 +1,13 @@
-import { ReactNode } from "react";
-
+import { ReactNode, useContext } from "react";
+import { UsersContext } from "../context/UsersContext";
+import { VscRefresh } from 'react-icons/vsc';
 interface TableProps {
     children: ReactNode;
     totalResults: number;
 }
 
 const Table = ({ children, totalResults }: TableProps) => {
+    const { loading } = useContext(UsersContext);
     return (
         <div className="flex-column justify-center items-center">
             <p className="text-lg ml-44 mt-6">Busca: {totalResults} resultados </p>
@@ -22,7 +24,15 @@ const Table = ({ children, totalResults }: TableProps) => {
                     {children}
                 </tbody>
             </table>
-        </div>
+            {loading &&
+                <div className="flex justify-center items-center mt-16">
+                    <VscRefresh size="32" />
+                    <strong className="font-medium text-2xl">
+                        Loading...
+                    </strong>
+                </div>
+            }
+        </div >
     );
 }
 

@@ -45,7 +45,8 @@ export interface UsersInfoData {
 export interface UsersContextData {
     results: UsersResultsData[];
     info: UsersInfoData;
-    fetchData: () => void;
+    loading: boolean;
+    fetchData: (page: number) => void;
 }
 
 export interface UsersProviderProps {
