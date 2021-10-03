@@ -5,7 +5,7 @@ interface TableRowProps {
     handleOpenModal: () => void;
 }
 
-const TableRow = ({ name, gender, birthday, handleOpenModal, ...rest }: TableRowProps) => {
+const TableRow = ({ name, gender, birthday, handleOpenModal }: TableRowProps) => {
     return (
         <tr>
             <td className="border-t border-r border-gray-400 text-center">{name}</td>

@@ -34,7 +34,8 @@ export interface UsersResultsData {
     },
     login: {
         uuid: string;
-    }
+    },
+    fromPage: number;
 }
 
 export interface UsersInfoData {
@@ -44,9 +45,16 @@ export interface UsersInfoData {
 
 export interface UsersContextData {
     results: UsersResultsData[];
+    singleUserInfo: UsersResultsData[];
     info: UsersInfoData;
     loading: boolean;
+    gender: string;
+    searchBy: string;
+    setGender: (gender: string) => void;
+    setResults: ([]) => void;
+    setSearchBy: (type: string) => void;
     fetchData: (page: number) => void;
+    fetchUser: (page: number, id: string) => void;
 }
 
 export interface UsersProviderProps {

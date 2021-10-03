@@ -1,12 +1,16 @@
-import React from 'react';
 import { UsersProvider } from './context/UsersContext';
-import Dashboard from './pages/Dashboard';
+import Routes from './routes';
+import { BrowserRouter } from 'react-router-dom';
+
 
 function App() {
   return (
-    <UsersProvider>
-      <Dashboard />
-    </UsersProvider>
+    <BrowserRouter>
+      <UsersProvider>
+        <Routes />
+      </UsersProvider>
+    </BrowserRouter>
+
   );
 }
 

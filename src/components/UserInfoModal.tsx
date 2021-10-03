@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { UsersResultsData } from "../context/types";
 
 interface ModalProps {
@@ -6,6 +7,8 @@ interface ModalProps {
 }
 
 const UserInfoModal = ({ handleCloseModal, data }: ModalProps) => {
+
+
     return (
         <>
             <div
@@ -14,7 +17,7 @@ const UserInfoModal = ({ handleCloseModal, data }: ModalProps) => {
                 <div className="relative w-1/4 mx-auto">
                     <div className="border-0 shadow-lg relative flex flex-col w-full bg-white">
                         <header className="flex p-5 mb-5">
-                            <img src={data.picture.large} alt={data.fullname} className="absolute -top-12 left-44 rounded-full" />
+                            <img src={data?.picture?.large} alt={data?.fullname} className="absolute -top-12 left-44 rounded-full" />
                             <button
                                 className="p-1 ml-auto bg-transparent border-0 text-black float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                                 onClick={handleCloseModal}
@@ -25,26 +28,32 @@ const UserInfoModal = ({ handleCloseModal, data }: ModalProps) => {
                             </button>
                         </header>
                         <h3 className="text-3xl font-semibold text-center">
-                            {data.fullname}
+                            {data?.fullname}
                         </h3>
                         <section className="relative p-6 flex-auto">
+                            <strong>ID:</strong>
+                            <p className=" text-blueGray-500 text-base ">{data?.login?.uuid}</p>
                             <strong>Email:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.email}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.email}</p>
                             <strong>Gênero:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.gender}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.gender}</p>
                             <strong>Birthday:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.birthday}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.birthday}</p>
                             <strong>Telephone:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.phone}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.phone}</p>
                             <strong>Cellphone:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.cell}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.cell}</p>
                             <strong>Nationality:</strong>
-                            <p className=" text-blueGray-500 text-base ">{data.nat}</p>
+                            <p className=" text-blueGray-500 text-base ">{data?.nat}</p>
                             <strong>Address:</strong>
                             <p className=" text-blueGray-500 text-base ">
-                                {`${data.location.street.name} ${data.location.street.number},
-                                ${data.location.city}, ${data.location.state}, ${data.location.country} `}
+                                {`${data?.location?.street?.name} ${data?.location?.street?.number},
+                                ${data?.location?.city}, ${data?.location?.state}, ${data?.location?.country} `}
                             </p>
+                            <strong>URL de Compartilhamento:</strong>
+                            <Link to={`page=${data?.fromPage}/${data?.login?.uuid}`} target="_blank" rel="noreferrer">
+                                URL do perfil
+                            </Link>
 
                         </section>
                     </div>
