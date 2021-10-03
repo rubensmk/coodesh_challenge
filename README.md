@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Front-End Challenge 🏅 2021 challenge by coodesh
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 📜 Descrição do Projeto
 
-## Available Scripts
+Este é um desafio criado pela Coodesh para testar meus conhecimentos de Front-end , o objetivo é construir uma aplicação de lista de pacientes e compartilhamento de perfil de um hospital ou clínica. Foi utilizando a Random User API (https://randomuser.me/api/), para gerar aleatoriamente diversos usuários, neste contexto pacientes, sendo os requisitors solicitados:
+- A listagem paginada de pacientes.
+- Filtro de busca por nome e nacionalidade.
+- Ordenação da tabela por gênero.
+- Visualização em modal de cada paciente e suas informações em detalhe.
+- URL de compartilhamento para que qualquer usuário possa acessar o perfil e a página exata onde o paciente se encontra.
 
-In the project directory, you can run:
+## ⚙️ Recursos
 
-### `yarn start`
+Para o desenvolvimento deste projeto foi utilizado recursos como:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+      - Tailwind CSS: https://tailwindcss.com/
+      - ReactJS: https://pt-br.reactjs.org/
+      - Javascript
+      - Typescript
+      - Context API
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## ✅ Instruções de como instalar e iniciar projeto
 
-### `yarn test`
+```bash
+# Clone este repositório
+$ git clone <https://github.com/rubensmk/coodesh_challenge>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# Acesse a pasta do projeto no terminal/cmd
+$ cd coodesh_challenge
 
-### `yarn build`
+# Instale todas as dependecias necessárias
+$ yarn install
+$ npm install
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start
+$ npm start
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# O servidor inciará na porta:3333 - acesse <http://localhost:3333>
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ 
