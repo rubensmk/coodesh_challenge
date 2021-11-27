@@ -6,9 +6,9 @@ import { RiUserSearchFill } from 'react-icons/ri';
 
 import Table from '../../components/Table';
 import TableRow from '../../components/TableRow';
-import { UsersContext } from '../../context/UsersContext';
+import { UsersContext } from '../../context/user/UsersContext';
 import UserInfoModal from '../../components/UserInfoModal';
-import { UsersResultsData } from '../../context/types';
+import { UsersResultsData } from '../../context/user/types';
 import SearchByFilter from '../../components/SearchByFilter';
 import { useParams, useHistory } from 'react-router';
 
@@ -23,8 +23,6 @@ const Dashboard = () => {
     const [search, setSearch] = useState('');
     const [debouncedSearch, setDebouncedSearch] = useState(search);
     const [filteredList, setFilteredList] = useState<UsersResultsData[]>([]);
-    // const [page, setPage] = useState(+params.page);
-    const [modalUser, setModalUser] = useState<UsersResultsData>({} as UsersResultsData);
     const { results, fetchData, info, loading, gender, searchBy, fetchUser, singleUserInfo, setSearchBy } = useContext(UsersContext);
 
     const handleOpenModal = (userID: string) => {
@@ -64,6 +62,10 @@ const Dashboard = () => {
             })
             setFilteredList(filtered);
         }
+    }
+
+    const handleSideBar = (isOpen: boolean) => {
+
     }
 
     useEffect(() => {
@@ -107,7 +109,7 @@ const Dashboard = () => {
             setIsModalOpen(true);
         }
         fetchData(+params.page);
-    }, [params.page, params.page]);
+    }, [params.page]);
 
     useEffect(() => {
         const timer = setTimeout(() => setSearch(debouncedSearch), 1000);
@@ -125,28 +127,27 @@ const Dashboard = () => {
 
     return (
         <div>
-            <Header />
-            <main className="flex justify-center items-center w-full">
-                <section className="flex-column mt-20 w-9/12 mb-12">
-                    <p className=" flex justify-center  text-lg font-medium text-left">
-                        Opus igitur est dicere possit dura omni specie, "Tu  autem in specie, non videntur, nec<br />omnino res est." Et examine ab eis praecepta eius quae habes, et primo et principaliter."
-                    </p>
-                    <div className="flex-column justify-center items-center mt-6">
-                        <section className="flex justify-center items-center">
-                            <input type="text" className="border-2 border-gray-300 w-3/6 h-10 p-4" placeholder={`Searching ${searchBy ? searchBy : 'by Name'}`} onChange={handleInput} value={search} />
-                            <RiUserSearchFill size={30} />
-                            <SearchByFilter />
-                        </section>
-                    </div>
-                    <Table totalResults={info.results} currentPage={info.page} handleNextPage={handleNextPage} handlePrevPage={handlePrevPage}>
-                        {search !== '' ? filteredList.map(user => (
-                            <TableRow key={user.login.uuid} name={`${user.name.first} ${user.name.last}`} gender={user.gender} birthday={user.birthday} handleOpenModal={() => handleOpenModal(user.login.uuid)} />
-                        )) :
-                            results.map(user => (
+            <Header/>
+            <main className="flex justify-center items-center">
+                <section className="flex-column w-auto">
+                    <div className="bg-tableBackgroundColor p-20 m-5 rounded-2xl shadow-inner">
+                        <div className="flex-column justify-center items-center">
+                            <section className="flex justify-center items-center">
+                                <input type="text" className="border-2 border-gray-300 w-3/6 h-10 p-4" placeholder={`Searching ${searchBy ? searchBy : 'by Name'}`} onChange={handleInput} value={search} />
+                                <RiUserSearchFill size={30} />
+                                <SearchByFilter />
+                            </section>
+                        </div>
+                        <Table totalResults={info.results} currentPage={info.page} handleNextPage={handleNextPage} handlePrevPage={handlePrevPage}>
+                            {search !== '' ? filteredList.map(user => (
                                 <TableRow key={user.login.uuid} name={`${user.name.first} ${user.name.last}`} gender={user.gender} birthday={user.birthday} handleOpenModal={() => handleOpenModal(user.login.uuid)} />
-                            ))
-                        }
-                    </Table>
+                            )) :
+                                results.map(user => (
+                                    <TableRow key={user.login.uuid} name={`${user.name.first} ${user.name.last}`} gender={user.gender} birthday={user.birthday} handleOpenModal={() => handleOpenModal(user.login.uuid)} />
+                                ))
+                            }
+                        </Table>
+                    </div>
                 </section>
 
                 {isModalOpen ? (

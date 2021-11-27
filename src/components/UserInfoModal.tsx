@@ -1,5 +1,6 @@
+import { RiShareForwardFill } from "react-icons/ri";
 import { Link } from "react-router-dom";
-import { UsersResultsData } from "../context/types";
+import { UsersResultsData } from "../context/user/types";
 
 interface ModalProps {
     handleCloseModal: () => void;
@@ -52,7 +53,13 @@ const UserInfoModal = ({ handleCloseModal, data }: ModalProps) => {
                             </p>
                             <strong>URL de Compartilhamento:</strong>
                             <Link to={`page=${data?.fromPage}/${data?.login?.uuid}`} target="_blank" rel="noreferrer">
-                                URL do perfil
+                            <button
+                                className="bg-gray-200 px-2 border border-solid border-gray-400 rounded-sm flex items-center">
+                                    <RiShareForwardFill/>
+                                    <span className="text-sm">
+                                    URL do perfil
+                                    </span>
+                            </button>       
                             </Link>
 
                         </section>

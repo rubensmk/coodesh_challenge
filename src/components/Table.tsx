@@ -1,5 +1,5 @@
 import { ReactNode, useContext } from "react";
-import { UsersContext } from "../context/UsersContext";
+import { UsersContext } from "../context/user/UsersContext";
 import ReactLoading from 'react-loading';
 import { GrFormNextLink, GrFormPreviousLink } from 'react-icons/gr'
 import { CgArrowsExchangeAltV } from 'react-icons/cg'
@@ -39,14 +39,14 @@ const Table = ({ children, totalResults, currentPage, handleNextPage, handlePrev
         )
     }
     return (
-        <div className="flex-column justify-center items-center w-auto">
+        <div className="flex-column justify-center items-center max-w-auto">
             <div className="flex justify-between items-center">
                 <p className="text-lg mt-6">Busca: {totalResults} resultados </p>
                 <p className="text-lg mt-6">Página: {currentPage}</p>
             </div>
 
-            <table className="table-fixed mt-2 border-2 border-gray-400 w-full mx-auto">
-                <thead className="border-2 border-gray-400 bg-tableBackgroundColor p-2">
+            <table className="table-fixed mt-2 border-2 border-gray-400 w-full mx-auto bg-white">
+                <thead className="border-2 border-gray-400 bg-gray-400 p-2">
                     <tr>
                         <th className="border-r border-gray-500 w-60 py-2">Name</th>
                         <th className="border-r border-gray-500 w-44 py-2">

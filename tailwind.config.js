@@ -4,10 +4,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        backgroundColor: '#F7F9FA',
-        tableBackgroundColor: '#9EADBA',
+        backgroundColor: '#222831',
+        tableBackgroundColor: '#FFFF',
         textColor: '#293845',
-        white: '#FFFFFF'
       }
     },
 

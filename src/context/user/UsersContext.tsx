@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import api from '../services/api';
+import api from '../../services/api';
 import { UsersContextData, UsersInfoData, UsersProviderProps, UsersResultsData } from './types';
 
 
@@ -13,7 +13,6 @@ export function UsersProvider({ children }: UsersProviderProps) {
     const [loading, setLoading] = useState(false);
     const [gender, setGender] = useState<string>('all');
     const [searchBy, setSearchBy] = useState<string>('');
-
 
     async function fetchData(pageNum: number) {
         setLoading(true);

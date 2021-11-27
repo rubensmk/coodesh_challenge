@@ -1,4 +1,4 @@
-import { UsersProvider } from './context/UsersContext';
+import { UsersProvider } from './context/user/UsersContext';
 import Routes from './routes';
 import { BrowserRouter } from 'react-router-dom';
 
